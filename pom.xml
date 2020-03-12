@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.utdallas.cs6367</groupId>
+  <artifactId>CS6367-Code-Coverage-Collection-Tool</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>CS6367 Code Coverage Collection Tool</name>
+  <description>A Java Agent that uses ASM to instrument statement level coverage for a given program.</description>
+
+
+
+
+  <build>
+    <plugins>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<configuration>
+		<argLine>-javaagent:codeCollectionTool.jar</argLine>
+		<properties>
+		<property>
+		<name>listener</name>
+		<value>[YourListener]</value>
+		</property>
+		</properties>
+		</configuration>
+	  </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.maven.plugins</groupId>
+  		<artifactId>maven-resources-plugin</artifactId>
+  		<version>2.6</version>
+  		<type>maven-plugin</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.ow2.asm</groupId>
+  		<artifactId>asm-all</artifactId>
+  		<version>6.0_BETA</version>
+  	</dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,8 @@
+TODOS:
+
+-Implement  code instrumentation in MethodTransformVisitor so that it invokes a method that stores all the code coverage for a given test,
+then dumps it all into a file once the test ends (to prevent excess I/O).
+
+-Implement JUnit Listener to hook onto test method lifecycle landmarks like test start and end
+
+-Maven integration/ suss out process to add our project as an agent onto third party libraries
